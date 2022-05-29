@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home container">
     <div class="home_head">
       <div class="home_head-title">
         Что есть какао?
@@ -42,10 +42,12 @@
     </div>
 
     <div class="home_advice">
-      <advice-vue v-for="advice in advices"
+      <advice-vue
+      v-for="advice in advices"
       :key="advice.name"
       :title="advice.title"
-      :text="advice.text">
+      :text="advice.text"
+      :ref="advice.name">
       </advice-vue>
     </div>
 
@@ -322,7 +324,8 @@ export default {
 
   methods: {
     scroll(name) {
-      console.log(name);
+      const item = this.$refs[name][0];
+      window.scrollTo({ top: item.$el.offsetTop, behavior: 'smooth' });
     },
   },
 };
@@ -330,15 +333,7 @@ export default {
 
 <style lang="scss" scoped>
   .home{
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid gray;
-    border-radius: 5px;
-    background-color: white;
-    padding: 20px;
-
-    &_head{
+     &_head{
       &-title{
         font-size: 30px;
         font-weight: bold;

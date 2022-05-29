@@ -16,6 +16,16 @@
   color: #2c3e50;
 }
 
+.container{
+  max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+}
+
 nav {
   padding: 30px;
 
